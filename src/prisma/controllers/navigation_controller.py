@@ -1,0 +1,32 @@
+class NavigationController:
+    """
+    Controla a navegação entre as páginas principais do PRISMA.
+
+    A interface utiliza um QStackedWidget para manter as diferentes
+    páginas da aplicação. Este controller conecta os botões de
+    navegação às respectivas páginas.
+    """
+
+    def __init__(self, window):
+        self.window = window
+
+        self._connect_navigation()
+
+    def _connect_navigation(self):
+        pages = {
+            self.window.dashboardButton: self.window.dashboardPage,
+            self.window.playgroundButton: self.window.playgroundPage,
+            self.window.algorithmsButton: self.window.algorithmsPage,
+            self.window.dataStructuresButton: self.window.dataStructuresPage,
+            self.window.apiButton: self.window.apiPage,
+            self.window.databaseButton: self.window.databasePage,
+            self.window.concurrencyButton: self.window.concurrencyPage,
+            self.window.activitiesButton: self.window.activitiesPage,
+            self.window.settingsButton: self.window.settingsPage,
+        }
+
+        for button, page in pages.items():
+            button.clicked.connect(
+                lambda checked=False, target_page=page:
+                    self.window.stackedWidget.setCurrentWidget(target_page)
+            )

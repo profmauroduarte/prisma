@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "prisma"
+version = "0.1.0"
+description = "Plataforma de Recursos Interativos para Simulação, Modelagem e Aprendizagem"
+requires-python = ">=3.10"
+dependencies = [
+    "PySide6",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]
