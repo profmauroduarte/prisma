@@ -12,6 +12,7 @@ from prisma.controllers.navigation_controller import NavigationController
 from prisma.services.playground.code_runner import CodeRunner
 from prisma.controllers.algorithms_controller import AlgorithmsController
 from prisma.controllers.data_structures_controller import DataStructuresController
+from prisma.controllers.api_controller import ApiController
 
 def main():
     app = QApplication(sys.argv)
@@ -46,7 +47,8 @@ def main():
     code_runner = CodeRunner(window)
     algorithms_controller = AlgorithmsController(window)
     data_structures_controller = DataStructuresController(window)
-
+    api_controller = ApiController(window)
+    
     window.show()
 
     sys.exit(app.exec())

@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="dashboardPage">
        <property name="sizePolicy">
@@ -307,11 +307,94 @@
       <widget class="QWidget" name="apiPage">
        <layout class="QVBoxLayout" name="verticalLayout_13">
         <item>
-         <widget class="QLabel" name="label_4">
-          <property name="text">
-           <string>apiPage</string>
-          </property>
-         </widget>
+         <layout class="QVBoxLayout" name="apiPageLayout">
+          <item>
+           <widget class="QLabel" name="apiTitleLabel">
+            <property name="text">
+             <string>🌐 Integração com APIs</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="apiSubtitleLabel">
+            <property name="text">
+             <string>Explore requisições HTTP e visualize respostas de APIs REST.</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="apiRequestLayout">
+            <item>
+             <widget class="QComboBox" name="apiMethodComboBox">
+              <property name="currentText">
+               <string>GET</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>GET</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>POST</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>PUT</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DELETE</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="apiUrlInput">
+              <property name="text">
+               <string>https://jsonplaceholder.typicode.com/users</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="apiSendButton">
+              <property name="text">
+               <string>Enviar requisição</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="apiStatusLabel">
+            <property name="text">
+             <string>Aguardando requisição...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="apiResponseTitle">
+            <property name="text">
+             <string>Resposta da API</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPlainTextEdit" name="apiResponseOutput">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -628,6 +711,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="apiButton">
+         <property name="text">
+          <string>🌐 API Explorer</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="databaseButton">
          <property name="text">
           <string>🗄️ DB Lab</string>
@@ -638,13 +728,6 @@
         <widget class="QPushButton" name="concurrencyButton">
          <property name="text">
           <string>⚡ Concurrency</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="apiButton">
-         <property name="text">
-          <string>🌐 API Explorer</string>
          </property>
         </widget>
        </item>
