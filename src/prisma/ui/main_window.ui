@@ -374,6 +374,20 @@
            </layout>
           </item>
           <item>
+           <widget class="QLabel" name="apiBodyLabel">
+            <property name="text">
+             <string>Corpo da requisição (JSON)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPlainTextEdit" name="apiBodyInput">
+            <property name="placeholderText">
+             <string>Insira aqui o JSON que será enviado na requisição POST.</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QLabel" name="apiStatusLabel">
             <property name="text">
              <string>Aguardando requisição...</string>
