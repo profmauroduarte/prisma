@@ -1,9 +1,30 @@
+# ============================================================
+# PRISMA — Estruturas de Dados
+#
+# Arquivo: stack_structure.py
+#
+# Responsabilidade:
+#   - manter o estado da pilha;
+#   - simular a entrada e a saída dos elementos;
+#   - reiniciar a simulação.
+# ============================================================
+
 class Pilha:
+    """
+    Representa uma simulação de pilha.
+
+    Mantém os dados e informa o resultado de cada passo
+    para que a interface possa atualizar a visualização.
+    """
 
     def __init__(self):
+        """Cria uma nova simulação de pilha."""
+
         self.reiniciar()
 
     def reiniciar(self):
+        """Esvazia a pilha e reinicia a etapa de inserção."""
+
         self.valores = []
 
         self.proximo_valor = 10
@@ -12,6 +33,13 @@ class Pilha:
         self.operacao = "push"
 
     def proximo_passo(self):
+        """
+        Insere um elemento por passo até atingir a capacidade.
+
+        Depois, remove um elemento por passo até esvaziar a pilha.
+        O último elemento inserido é o primeiro a sair (LIFO).
+        """
+
 
         # ====================================================
         # PUSH — adicionando elementos
@@ -32,6 +60,7 @@ class Pilha:
                     "valor": valor,
                 }
 
+            # Ao atingir a capacidade, começa a etapa de remoção.
             self.operacao = "pop"
 
         # ====================================================
@@ -42,6 +71,7 @@ class Pilha:
 
             if self.valores:
 
+                # Remove o último elemento inserido que ainda está na pilha.
                 valor = self.valores.pop()
 
                 return {

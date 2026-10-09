@@ -1,8 +1,29 @@
+# ============================================================
+# PRISMA — Algoritmos
+#
+# Arquivo: selection_sort.py
+#
+# Responsabilidade:
+#   - manter o estado do Selection Sort;
+#   - gerar o vetor inicial;
+#   - executar um passo da ordenação;
+#   - reiniciar a simulação.
+# ============================================================
+
 import random
 
 
 class SelectionSort:
+    """
+    Representa uma simulação de Selection Sort.
+
+    Esta classe cuida somente da lógica e do estado
+    do algoritmo. Ela não conhece a interface gráfica.
+    """
+
     def __init__(self):
+        """Cria uma nova simulação de Selection Sort."""
+
         self.valores = []
 
         # Posição que estamos tentando preencher

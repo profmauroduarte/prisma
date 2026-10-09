@@ -1,3 +1,14 @@
+# ============================================================
+# PRISMA — Integração com APIs
+#
+# Arquivo: api_client.py
+#
+# Responsabilidade:
+#   - enviar requisições HTTP sem bloquear a interface;
+#   - processar respostas e erros de comunicação;
+#   - informar os resultados por meio de sinais do Qt.
+# ============================================================
+
 from PySide6.QtCore import QObject, Signal, QUrl, QByteArray
 from PySide6.QtNetwork import (
     QNetworkAccessManager,
@@ -18,6 +29,8 @@ class ApiClient(QObject):
     erro_ocorrido = Signal(str)
 
     def __init__(self, parent=None):
+        """Cria o gerenciador de rede vinculado ao objeto Qt."""
+
         super().__init__(parent)
 
         self.manager = QNetworkAccessManager(self)
@@ -31,6 +44,7 @@ class ApiClient(QObject):
 
         reply = self.manager.get(request)
 
+        # Processa a resposta quando o Qt sinaliza o fim da requisição.
         reply.finished.connect(
             lambda: self._processar_resposta(reply)
         )
@@ -115,6 +129,7 @@ class ApiClient(QObject):
                 reply.deleteLater()
                 return
 
+        # Informa o status e o conteúdo ao controller da página.
         self.resposta_recebida.emit(
             int(status) if status is not None else 0,
             conteudo,

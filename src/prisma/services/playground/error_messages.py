@@ -1,3 +1,14 @@
+# ============================================================
+# PRISMA — Playground de Lógica
+#
+# Arquivo: error_messages.py
+#
+# Responsabilidade:
+#   - associar os tipos de erro do Python a mensagens amigáveis;
+#   - fornecer explicações para o console do Playground.
+# ============================================================
+
+# As chaves correspondem ao nome do tipo da exceção capturada pelo CodeRunner.
 ERROR_MESSAGES = {
     "SyntaxError": "Erro de sintaxe",
     "NameError": "Variável ou nome não definido",

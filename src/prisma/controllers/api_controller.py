@@ -1,3 +1,14 @@
+# ============================================================
+# PRISMA — Integração com APIs
+#
+# Arquivo: api_controller.py
+#
+# Responsabilidade:
+#   - validar a URL e o corpo JSON da requisição;
+#   - conectar as ações da página ao serviço de APIs;
+#   - exibir respostas e mensagens de erro.
+# ============================================================
+
 import json
 
 from prisma.services.api.api_client import ApiClient
@@ -14,6 +25,8 @@ class ApiController:
     """
 
     def __init__(self, window):
+        """Guarda a janela, cria o serviço de APIs e configura a página."""
+
         self.window = window
         self.api_client = ApiClient(window)
 
@@ -26,7 +39,7 @@ class ApiController:
     def _atualizar_metodo(self, metodo=None):
         """
         Habilita o corpo JSON para POST e PUT.
-        Limpa o conteúdo ao selecionar GET.
+        Limpa o conteúdo para os métodos que não utilizam corpo.
         """
 
         metodo = self.window.apiMethodComboBox.currentText()
@@ -40,6 +53,8 @@ class ApiController:
             self.window.apiBodyInput.clear()
 
     def _conectar_sinais(self):
+        """Conecta as ações da interface e os resultados do serviço de APIs."""
+
         self.window.apiMethodComboBox.currentTextChanged.connect(
             self._atualizar_metodo
         )
@@ -56,6 +71,8 @@ class ApiController:
         )
 
     def enviar_requisicao(self):
+        """Valida os dados e envia a requisição pelo método selecionado."""
+
         url = self.window.apiUrlInput.text().strip()
         metodo = self.window.apiMethodComboBox.currentText()
 
@@ -71,6 +88,7 @@ class ApiController:
             )
             return
 
+        # Valida o JSON antes de iniciar uma requisição que utiliza corpo.
         dados_json = None
 
         if metodo in ("POST", "PUT"):
@@ -91,6 +109,8 @@ class ApiController:
                 )
                 return
 
+        # Guarda o método para interpretar a resposta e bloqueia novos envios
+        # enquanto a requisição está em andamento.
         self.metodo_atual = metodo
         self.window.apiSendButton.setEnabled(False)
         self.window.apiStatusLabel.setText(
@@ -115,6 +135,7 @@ class ApiController:
             )
             self.api_client.put(url, corpo)
 
+        # A exclusão só é enviada após a confirmação na interface.
         elif metodo == "DELETE":
             resposta = QMessageBox.question(
                 self.window,
@@ -139,6 +160,8 @@ class ApiController:
             )
 
     def exibir_resposta(self, status, conteudo):
+        """Exibe o status HTTP e formata a resposta quando ela contém JSON."""
+
         self.window.apiSendButton.setEnabled(True)
 
         self.window.apiStatusLabel.setText(
@@ -165,12 +188,15 @@ class ApiController:
             )
 
         except json.JSONDecodeError:
+            # Respostas sem JSON são exibidas com o texto recebido.
             conteudo_formatado = conteudo
 
         self.window.apiResponseOutput.setPlainText(
             conteudo_formatado
         )
     def exibir_erro(self, mensagem):
+        """Exibe o erro de comunicação e libera o envio de outra requisição."""
+
         self.window.apiSendButton.setEnabled(True)
 
         self.window.apiStatusLabel.setText(

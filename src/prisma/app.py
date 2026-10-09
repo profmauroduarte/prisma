@@ -1,3 +1,14 @@
+# ============================================================
+# PRISMA — Inicialização
+#
+# Arquivo: app.py
+#
+# Responsabilidade:
+#   - criar a aplicação Qt;
+#   - carregar a interface e registrar o editor personalizado;
+#   - inicializar os controllers e exibir a janela principal.
+# ============================================================
+
 # imports 
 import sys
 from pathlib import Path
@@ -13,9 +24,14 @@ from prisma.services.playground.code_runner import CodeRunner
 from prisma.controllers.algorithms_controller import AlgorithmsController
 from prisma.controllers.data_structures_controller import DataStructuresController
 from prisma.controllers.api_controller import ApiController
+from prisma.controllers.database_controller import DatabaseController
 
 def main():
+    """Carrega a janela principal e inicia o loop de eventos do Qt."""
+
     app = QApplication(sys.argv)
+
+    app.setApplicationName("PRISMA")
 
     # Caminho do diretório onde está o pacote "prisma"
     package_dir = Path(__file__).resolve().parent
@@ -43,12 +59,15 @@ def main():
             f"Não foi possível carregar a interface: {loader.errorString()}"
         )
 
+    # Os controllers conectam os componentes da janela às funcionalidades.
     navigation_controller = NavigationController(window)
     code_runner = CodeRunner(window)
     algorithms_controller = AlgorithmsController(window)
     data_structures_controller = DataStructuresController(window)
     api_controller = ApiController(window)
+    database_controller = DatabaseController(window)
     
     window.show()
 
+    # Mantém a aplicação respondendo aos eventos até a janela ser fechada.
     sys.exit(app.exec())

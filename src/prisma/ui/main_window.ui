@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="dashboardPage">
        <property name="sizePolicy">
@@ -412,12 +412,119 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="databasePage">
-       <layout class="QVBoxLayout" name="verticalLayout_14">
+      <widget class="QWidget" name="dbPage">
+       <layout class="QVBoxLayout" name="verticalLayout_14" stretch="0,0,0,0,0,0,0,0">
         <item>
-         <widget class="QLabel" name="label_5">
+         <widget class="QLabel" name="DBLabTitle">
           <property name="text">
-           <string>databasePage</string>
+           <string>DB Lab</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="DBLabSubTitle">
+          <property name="text">
+           <string>Laboratório de Banco de Dados SQLite</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="dbConnectionLayout">
+          <item>
+           <widget class="QLineEdit" name="dbPathInput">
+            <property name="text">
+             <string>laboratorio.db</string>
+            </property>
+            <property name="placeholderText">
+             <string>Caminho do banco SQLite (.db)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="dbConnectButton">
+            <property name="text">
+             <string>Conectar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="dbStatusLabel">
+            <property name="text">
+             <string>Desconectado</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="dbSqlLabel">
+          <property name="text">
+           <string>Editor SQL</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="dbSqlInput">
+          <property name="plainText">
+           <string>CREATE TABLE alunos (
+    id INTEGER PRIMARY KEY,
+    nome TEXT NOT NULL,
+    idade INTEGER
+);</string>
+          </property>
+          <property name="placeholderText">
+           <string>Digite um comando SQL...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="dbButtonLayout">
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="dbSqlStatusLabel">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="dbExecuteButton">
+            <property name="text">
+             <string>Executar SQL</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="dbResultsLabel">
+          <property name="text">
+           <string>Resultados</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="dbResultsTable">
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
           </property>
          </widget>
         </item>

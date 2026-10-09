@@ -1,8 +1,29 @@
+# ============================================================
+# PRISMA — Algoritmos
+#
+# Arquivo: insertion_sort.py
+#
+# Responsabilidade:
+#   - manter o estado do Insertion Sort;
+#   - gerar o vetor inicial;
+#   - executar um passo da ordenação;
+#   - reiniciar a simulação.
+# ============================================================
+
 import random
 
 
 class InsertionSort:
+    """
+    Representa uma simulação de Insertion Sort.
+
+    Esta classe cuida somente da lógica e do estado
+    do algoritmo. Ela não conhece a interface gráfica.
+    """
+
     def __init__(self):
+        """Cria uma nova simulação de Insertion Sort."""
+
         self.valores = []
 
         # Posição do elemento que estamos tentando inserir

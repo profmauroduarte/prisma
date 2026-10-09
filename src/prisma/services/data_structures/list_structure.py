@@ -1,6 +1,25 @@
+# ============================================================
+# PRISMA — Estruturas de Dados
+#
+# Arquivo: list_structure.py
+#
+# Responsabilidade:
+#   - manter os valores da lista;
+#   - percorrer um elemento por vez;
+#   - reiniciar a simulação.
+# ============================================================
+
 class Lista:
+    """
+    Representa uma simulação de lista.
+
+    Mantém os dados e informa o resultado de cada passo
+    para que a interface possa atualizar a visualização.
+    """
 
     def __init__(self):
+        """Cria uma nova simulação de lista."""
+
         self.reiniciar()
 
     def reiniciar(self):
@@ -24,6 +43,7 @@ class Lista:
         Avança um elemento por vez pela lista.
         """
 
+        # Quando todos os elementos foram visitados, encerra o percurso.
         if self.indice_atual >= len(self.valores):
 
             return {
@@ -33,6 +53,7 @@ class Lista:
         indice = self.indice_atual
         valor = self.valores[indice]
 
+        # Guarda a próxima posição para o próximo passo.
         self.indice_atual += 1
 
         return {
