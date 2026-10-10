@@ -115,6 +115,8 @@ class BubbleSort:
 
         if valor_atual > proximo_valor:
 
+            # A atribuição simultânea troca os valores sem uma variável auxiliar:
+            # o Python avalia o lado direito antes de alterar o lado esquerdo.
             self.valores[indice], self.valores[proximo_indice] = (
                 self.valores[proximo_indice],
                 self.valores[indice],

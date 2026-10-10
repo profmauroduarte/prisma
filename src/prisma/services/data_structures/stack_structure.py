@@ -28,6 +28,7 @@ class Pilha:
         self.valores = []
 
         self.proximo_valor = 10
+        # A capacidade limita esta demonstração, não a lista Python em si.
         self.capacidade = 5
 
         self.operacao = "push"
@@ -51,6 +52,8 @@ class Pilha:
 
                 valor = self.proximo_valor
 
+                # O final da lista representa o topo. append() insere nesse topo
+                # e pop() remove dele: último a entrar, primeiro a sair (LIFO).
                 self.valores.append(valor)
 
                 self.proximo_valor += 10

@@ -1,12 +1,12 @@
 # ============================================================
 # PRISMA — Playground de Lógica
 #
-# Arquivo: services/logic_playground.py
+# Arquivo: services/playground/code_runner.py
 # Responsabilidade:
 #   - executar o código Python digitado pelo aluno;
 #   - capturar a saída do print();
 #   - tratar erros de execução;
-#   - limpar o console de saída.
+#   - retornar o texto que será apresentado ao aluno.
 # ============================================================
 
 
@@ -33,31 +33,12 @@ from prisma.services.playground.error_messages import ERROR_MESSAGES
 
 class CodeRunner:
 
-    def __init__(self, window):
-        # Recebemos a janela principal da aplicação.
-        #
-        # O Playground já existe dentro do main_window.ui.
-        # Portanto, não carregamos outro arquivo .ui aqui.
-        self.window = window
-
-        # O botão Executar chama o método run_code().
-        self.window.runButton.clicked.connect(
-            self.run_code
-        )
-
-        # O botão Limpar chama o método clear_output().
-        self.window.clearButton.clicked.connect(
-            self.clear_output
-        )
-
     # --------------------------------------------------------
     # EXECUTA O CÓDIGO DIGITADO PELO ALUNO
     # --------------------------------------------------------
 
-    def run_code(self):
-
-        # Obtém o código digitado no editor.
-        code = self.window.codeEditor.toPlainText()
+    def run_code(self, code):
+        """Executa o código recebido e retorna a saída ou a mensagem de erro."""
 
         # Cria um buffer de texto para capturar
         # tudo que for enviado para print().
@@ -67,15 +48,16 @@ class CodeRunner:
 
             # Redireciona temporariamente o stdout
             # para o nosso buffer.
+            # O redirecionamento vale apenas dentro do bloco with e é desfeito
+            # mesmo se ocorrer um erro. A execução acontece na thread que o chamou.
             with contextlib.redirect_stdout(output):
 
                 # Executa o código Python digitado pelo aluno.
+                # exec() executa Python no próprio processo da aplicação.
+                # Este mecanismo não oferece isolamento para código não confiável.
                 exec(code)
 
-            # Mostra no console o resultado capturado.
-            self.window.outputConsole.setPlainText(
-                output.getvalue()
-            )
+            return output.getvalue()
 
         except Exception as error:
 
@@ -97,23 +79,12 @@ class CodeRunner:
             # registrada no traceback.
             line_number = traceback_info[-1].lineno
 
-            # Mostra no console:
+            # Retorna para o controller:
             #   - mensagem amigável;
             #   - linha do erro;
             #   - mensagem original do Python.
-            self.window.outputConsole.setPlainText(
+            return (
                 f"{message}\n\n"
                 f"Linha: {line_number}\n\n"
                 f"Detalhes: {error}"
             )
-
-    # --------------------------------------------------------
-    # LIMPA O CONSOLE
-    # --------------------------------------------------------
-
-    def clear_output(self):
-
-        # Limpa todo o conteúdo do console.
-        self.window.outputConsole.clear()
-        self.window.codeEditor.clear()
-        

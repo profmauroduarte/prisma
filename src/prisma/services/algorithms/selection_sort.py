@@ -96,6 +96,8 @@ class SelectionSort:
             valor_menor = self.valores[indice_menor]
 
             # Realiza a troca.
+            # O trecho anterior a indice_atual já está ordenado. O menor valor
+            # do trecho restante é colocado na primeira posição desse trecho.
             self.valores[self.indice_atual], self.valores[indice_menor] = (
                 self.valores[indice_menor],
                 self.valores[self.indice_atual],

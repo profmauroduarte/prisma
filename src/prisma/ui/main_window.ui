@@ -464,7 +464,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPlainTextEdit" name="dbSqlInput">
+         <widget class="CodeEditor" name="dbSqlInput">
           <property name="plainText">
            <string>CREATE TABLE alunos (
     id INTEGER PRIMARY KEY,

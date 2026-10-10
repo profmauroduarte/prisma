@@ -233,6 +233,8 @@ class CodeEditor(QPlainTextEdit):
         )
 
         selection.cursor = self.textCursor()
+        # O cursor é uma cópia usada no destaque. Limpar sua seleção evita
+        # limitar a pintura ao texto selecionado pelo usuário.
         selection.cursor.clearSelection()
 
         extra_selection.append(selection)

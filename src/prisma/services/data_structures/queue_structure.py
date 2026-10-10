@@ -28,6 +28,8 @@ class Fila:
         self.valores = []
 
         self.proximo_valor = 10
+        # Este limite pertence à demonstração; uma lista Python não tem
+        # capacidade fixa de cinco elementos.
         self.capacidade = 5
 
         self.operacao = "enqueue"
@@ -51,6 +53,8 @@ class Fila:
 
                 valor = self.proximo_valor
 
+                # append() insere no fim; pop(0), na remoção, retira da frente.
+                # Essa combinação simula FIFO: primeiro a entrar, primeiro a sair.
                 self.valores.append(valor)
 
                 self.proximo_valor += 10

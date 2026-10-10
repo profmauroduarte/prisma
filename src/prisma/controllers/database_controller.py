@@ -9,6 +9,8 @@ class DatabaseController:
 
     def __init__(self, window):
         self.window = window
+        # O controller conhece a interface; o serviço conhece o SQLite.
+        # Essa divisão permite usar o serviço sem abrir uma janela.
         self.database = SQLiteService()
 
         # Apresenta o caminho padrão do banco na interface.
@@ -18,6 +20,8 @@ class DatabaseController:
 
         self.window.dbStatusLabel.setText("Desconectado")
 
+        # connect() registra o método que será chamado quando o botão emitir
+        # o sinal clicked; o método não é executado durante esta configuração.
         self.window.dbConnectButton.clicked.connect(
             self.conectar_banco
         )
@@ -27,6 +31,7 @@ class DatabaseController:
 )
 
     def conectar_banco(self):
+        # strip() remove espaços nas extremidades antes de validar o campo.
         caminho = self.window.dbPathInput.text().strip()
 
         if not caminho:
@@ -60,6 +65,8 @@ class DatabaseController:
             return
 
         try:
+            # Desempacota os três valores retornados pelo serviço: estrutura
+            # das colunas, conteúdo das linhas e contagem para a mensagem.
             colunas, registros, quantidade = self.database.executar(sql)
 
             self.exibir_resultados(colunas, registros)
@@ -68,6 +75,8 @@ class DatabaseController:
                 mensagem = (
                     f"Consulta realizada: {quantidade} registro(s) encontrado(s)."
                 )
+            # Uma contagem negativa indica que o comando não fornece quantidade
+            # de linhas afetadas; nesse caso, usamos uma mensagem sem contagem.
             elif quantidade >= 0:
                 mensagem = (
                     f"Comando executado: {quantidade} linha(s) afetada(s)."
@@ -88,6 +97,8 @@ class DatabaseController:
         """
         tabela = self.window.dbResultsTable
 
+        # Remove células e cabeçalhos da consulta anterior. As dimensões
+        # são ajustadas em seguida, inclusive quando o resultado está vazio.
         tabela.clear()
 
         tabela.setColumnCount(len(colunas))
@@ -95,8 +106,12 @@ class DatabaseController:
 
         tabela.setHorizontalHeaderLabels(colunas)
 
+        # enumerate() fornece o índice e o conteúdo. Os índices da tabela
+        # começam em zero, assim como os índices das sequências Python.
         for linha, registro in enumerate(registros):
             for coluna, valor in enumerate(registro):
+                # Cada célula recebe um item próprio. None representa NULL no SQL;
+                # os demais valores são convertidos em texto para exibição.
                 item = QTableWidgetItem(
                     "NULL" if valor is None else str(valor)
                 )

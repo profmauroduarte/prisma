@@ -26,6 +26,8 @@ class AlgorithmsController:
         # Algoritmos
         # --------------------------------------------------------
 
+        # As instâncias guardam os índices e valores entre cliques.
+        # Criá-las a cada passo faria a simulação voltar ao início.
         self.busca_linear = BuscaLinear()
         self.busca_binaria = BuscaBinaria()
         self.bubble_sort = BubbleSort()
@@ -101,6 +103,9 @@ class AlgorithmsController:
     def atualizar_visualizacao(self):
         """Atualiza visualmente o vetor apresentado na tela."""
 
+        # Reconstrói a visualização a partir do estado atual do serviço.
+        # takeAt() remove o item do layout; deleteLater() agenda a destruição
+        # do widget pelo Qt, depois do processamento dos eventos em andamento.
         while self.window.valuesLayout.count():
 
             item = self.window.valuesLayout.takeAt(0)
@@ -124,6 +129,8 @@ class AlgorithmsController:
             valores = self.busca_linear.valores
             posicao_analisada = self.busca_linear.posicao_analisada
 
+            # O índice identifica a posição no vetor; a seta destaca a posição
+            # analisada, sem modificar os dados do algoritmo.
             for indice, valor in enumerate(valores):
 
                 if indice == posicao_analisada:

@@ -36,6 +36,8 @@ class Lista:
             50,
         ]
 
+        # O índice é o estado do percurso: cada chamada visita uma posição.
+        # Reiniciar coloca o percurso no primeiro elemento, de índice zero.
         self.indice_atual = 0
 
     def proximo_passo(self):

@@ -44,6 +44,8 @@ class ApiController:
 
         metodo = self.window.apiMethodComboBox.currentText()
 
+        # A interface só pede corpo JSON para os métodos que o utilizam
+        # neste laboratório; GET e DELETE trabalham apenas com a URL.
         usa_corpo = metodo in ("POST", "PUT")
 
         self.window.apiBodyInput.setEnabled(usa_corpo)
@@ -101,6 +103,8 @@ class ApiController:
                 return
 
             try:
+                # loads() converte texto JSON em objetos Python e valida a sintaxe.
+                # Mais adiante, dumps() serializa esses objetos para o envio.
                 dados_json = json.loads(texto)
             except json.JSONDecodeError as erro:
                 self.window.apiStatusLabel.setText(
@@ -178,6 +182,8 @@ class ApiController:
             )
             return
 
+        # Nem toda resposta HTTP contém JSON. Tentamos formatá-la;
+        # se a conversão falhar, exibimos o texto recebido sem formatação JSON.
         try:
             dados = json.loads(conteudo)
 

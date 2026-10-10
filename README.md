@@ -8,7 +8,8 @@ Modelagem e Aprendizagem**
 O **PRISMA** é uma aplicação desktop educacional desenvolvida em Python
 com PySide6. Seu objetivo é oferecer um ambiente visual e interativo
 para explorar conceitos de programação, permitindo acompanhar
-algoritmos, estruturas de dados e execução de código de forma prática.
+algoritmos, estruturas de dados, execução de código, APIs e bancos de
+dados de forma prática.
 
 O projeto também serve como aplicação-base para uma formação em
 desenvolvimento de interfaces desktop com Python e Qt, evoluindo ao
@@ -20,10 +21,13 @@ Nesta etapa do desenvolvimento, o PRISMA já possui:
 
 -   navegação entre as principais áreas da aplicação;
 -   Playground para escrita e execução de código Python;
--   editor de código customizado com numeração de linhas;
+-   editor de código customizado com numeração de linhas e destaque da
+    linha atual, compartilhado pelo Playground e pelo DB Lab;
 -   mensagens amigáveis para erros comuns de execução;
 -   visualização passo a passo de algoritmos;
--   simulação visual de estruturas de dados.
+-   simulação visual de estruturas de dados;
+-   API Explorer para realizar requisições HTTP;
+-   DB Lab para executar comandos SQL em bancos SQLite persistentes.
 
 ### Algoritmos disponíveis
 
@@ -39,6 +43,41 @@ Nesta etapa do desenvolvimento, o PRISMA já possui:
 -   Pilha
 -   Fila
 
+Os laboratórios de algoritmos e estruturas de dados permitem acompanhar
+a execução por etapas e reiniciar as demonstrações.
+
+### API Explorer
+
+-   Requisições GET, POST, PUT e DELETE.
+-   Validação da URL e do corpo JSON para POST e PUT.
+-   Comunicação assíncrona com `QNetworkAccessManager`.
+-   Exibição do status HTTP e da resposta, com formatação de JSON.
+-   Tratamento de erros de comunicação e confirmação antes de exclusões.
+-   Mensagens educativas para orientar o uso.
+
+### DB Lab — SQLite
+
+-   Conexão com um arquivo SQLite existente ou criação de um novo banco.
+-   Campo para visualizar e informar o caminho do banco.
+-   Editor SQL com o mesmo `CodeEditor` utilizado no Playground.
+-   Execução de comandos como CREATE TABLE, INSERT, SELECT, UPDATE e DELETE.
+-   Resultados em `QTableWidget`, com nomes das colunas e registros.
+-   Contagem de registros retornados ou linhas afetadas.
+-   Indicadores separados para conexão e execução SQL.
+-   Tratamento de erros de conexão e execução.
+
+O banco padrão é `laboratorio.db`, armazenado no diretório de dados da
+aplicação obtido por `QStandardPaths.AppLocalDataLocation`. No ambiente
+Linux de desenvolvimento, o caminho padrão é:
+
+``` text
+~/.local/share/PRISMA/laboratorio.db
+```
+
+O DB Lab utiliza somente SQLite. MySQL e PostgreSQL poderão ser abordados
+comparativamente no material didático. O destaque de sintaxe SQL está
+adiado.
+
 ## Tecnologias
 
 O projeto utiliza atualmente:
@@ -48,6 +87,9 @@ O projeto utiliza atualmente:
 -   **Qt Designer**
 -   **Qt Widgets**
 -   **QUiLoader**
+-   **QStackedWidget** para navegação
+-   **QNetworkAccessManager** para comunicação HTTP
+-   **SQLite**, com a biblioteca padrão **sqlite3**
 -   **Git**
 
 A interface é construída visualmente no Qt Designer e carregada
@@ -61,6 +103,8 @@ responsabilidades da aplicação:
 
 ``` text
 PRISMA/
+├── AGENTS.md
+├── README.md
 ├── pyproject.toml
 ├── src/
 │   └── prisma/
@@ -68,7 +112,9 @@ PRISMA/
 │       ├── resources/
 │       ├── services/
 │       │   ├── algorithms/
+│       │   ├── api/
 │       │   ├── data_structures/
+│       │   ├── database/
 │       │   └── playground/
 │       ├── styles/
 │       ├── ui/
@@ -88,7 +134,10 @@ PRISMA/
 -   **`views/`** --- componentes visuais customizados em Python.
 -   **`ui/`** --- interfaces criadas no Qt Designer.
 -   **`resources/`** --- recursos utilizados pela aplicação.
--   **`styles/`** --- estilos visuais do projeto.
+-   **`styles/`** --- diretório reservado para futuros estilos visuais.
+
+Os diretórios `resources/`, `styles/` e `tests/` estão atualmente vazios.
+O projeto ainda não possui testes automatizados.
 
 ## Instalação
 
@@ -141,6 +190,27 @@ pyside6-designer
 
 As alterações salvas no arquivo `.ui` são carregadas pela aplicação sem
 a necessidade de gerar manualmente um arquivo Python com `pyside6-uic`.
+O carregamento utiliza `QUiLoader`, com registro do widget personalizado
+`CodeEditor`.
+
+## Desenvolvimento
+
+O desenvolvimento é incremental: uma etapa por vez, preservando as
+funcionalidades existentes e priorizando código simples e didático.
+Mudanças arquiteturais devem ser discutidas antes da implementação.
+As instruções para agentes estão em [AGENTS.md](AGENTS.md).
+
+O trabalho está organizado em trilhas:
+
+-   **Trilha 0:** Boas-vindas, Python, ambiente e Git.
+-   **Trilha 1:** Interface e Arquitetura.
+-   **Trilha 2:** Design e Experiência.
+-   **Trilha 3:** Lógica, Dados e Recursos.
+-   **Trilha 4:** Performance e Concorrência.
+-   **Trilha 5:** Finalização e Distribuição.
+
+A aplicação ainda não utiliza QSS. A definição de estilos fica para a
+Trilha 2.
 
 ## Status do projeto
 

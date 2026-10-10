@@ -96,6 +96,9 @@ class InsertionSort:
             # deslocamos o elemento anterior para a direita.
             if valor_atual < valor_comparado:
 
+                # Nesta versão por etapas, a inserção usa trocas entre vizinhos.
+                # O elemento menor caminha para a esquerda e o maior para a direita;
+                # os índices guardados permitem continuar no próximo clique.
                 self.valores[
                     self.indice_comparado
                 ], self.valores[

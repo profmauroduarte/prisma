@@ -48,6 +48,9 @@ class BuscaBinaria:
         Também reinicia os limites da busca.
         """
 
+        # A busca binária exige valores ordenados para descartar metade
+        # do intervalo com base na comparação com o elemento central.
+        # sample() escolhe valores sem repetição; sorted() devolve a ordem crescente.
         self.valores = sorted(
             random.sample(
                 range(1, 100),
@@ -55,6 +58,8 @@ class BuscaBinaria:
             )
         )
 
+        # O alvo é escolhido entre os valores existentes para que esta
+        # demonstração comece com uma busca que pode encontrar o elemento.
         self.valor_procurado = random.choice(
             self.valores
         )
@@ -130,6 +135,8 @@ class BuscaBinaria:
 
             if self.valor_procurado > valor_atual:
 
+                # Descarta o meio e tudo à esquerda: esses valores são menores
+                # que o alvo. O +1 evita analisar novamente a posição central.
                 self.inicio = self.meio + 1
 
                 return {
@@ -145,6 +152,7 @@ class BuscaBinaria:
             # VALOR PROCURADO É MENOR
             # ------------------------------------------------
 
+            # Descarta o meio e tudo à direita. O -1 exclui a posição já comparada.
             self.fim = self.meio - 1
 
             return {

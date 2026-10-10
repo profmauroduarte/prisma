@@ -73,6 +73,9 @@ class DataStructuresController:
         apresentada na tela.
         """
 
+        # Remove a apresentação anterior antes de desenhar o novo estado.
+        # Remover do layout não destrói o widget: deleteLater() faz essa limpeza
+        # quando o Qt puder processá-la com segurança.
         while self.window.dataStructureValuesLayout.count():
 
             item = self.window.dataStructureValuesLayout.takeAt(0)
@@ -95,6 +98,8 @@ class DataStructuresController:
 
             for indice, valor in enumerate(self.lista.valores):
 
+                # O serviço já avançou o índice para o próximo passo; subtraímos 1
+                # para destacar o elemento que acabou de ser visitado.
                 if indice == self.lista.indice_atual - 1:
                     label = QLabel(f"▶ {valor}")
                 else:
@@ -121,6 +126,8 @@ class DataStructuresController:
                 topo.setAlignment(Qt.AlignCenter)
                 pilha_layout.addWidget(topo)
 
+                # Na lista Python, o topo fica no final. reversed() permite desenhá-lo
+                # primeiro, no alto da tela, sem alterar a ordem dos dados.
                 for valor in reversed(self.pilha.valores):
 
                     label = QLabel(str(valor))

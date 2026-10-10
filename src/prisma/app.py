@@ -20,7 +20,7 @@ from PySide6.QtWidgets import QApplication
 # imports do projeto
 from prisma.views.code_editor import CodeEditor
 from prisma.controllers.navigation_controller import NavigationController
-from prisma.services.playground.code_runner import CodeRunner
+from prisma.controllers.playground_controller import PlaygroundController
 from prisma.controllers.algorithms_controller import AlgorithmsController
 from prisma.controllers.data_structures_controller import DataStructuresController
 from prisma.controllers.api_controller import ApiController
@@ -31,6 +31,8 @@ def main():
 
     app = QApplication(sys.argv)
 
+    # O nome também é usado pelo Qt ao determinar o diretório de dados
+    # da aplicação, onde o DB Lab cria o banco padrão.
     app.setApplicationName("PRISMA")
 
     # Caminho do diretório onde está o pacote "prisma"
@@ -49,6 +51,8 @@ def main():
     loader = QUiLoader()
 
     # Registra o widget customizado usado no Qt Designer
+    # O .ui contém widgets promovidos para CodeEditor. O registro ensina
+    # o loader a criar essa classe Python ao encontrar seu nome no XML.
     loader.registerCustomWidget(CodeEditor)
 
     window = loader.load(ui_file)
@@ -61,7 +65,7 @@ def main():
 
     # Os controllers conectam os componentes da janela às funcionalidades.
     navigation_controller = NavigationController(window)
-    code_runner = CodeRunner(window)
+    playground_controller = PlaygroundController(window)
     algorithms_controller = AlgorithmsController(window)
     data_structures_controller = DataStructuresController(window)
     api_controller = ApiController(window)
@@ -70,4 +74,6 @@ def main():
     window.show()
 
     # Mantém a aplicação respondendo aos eventos até a janela ser fechada.
+    # exec() inicia o loop de eventos: cliques, sinais e atualizações
+    # são processados até a aplicação encerrar. Seu retorno é o código de saída.
     sys.exit(app.exec())

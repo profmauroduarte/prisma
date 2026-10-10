@@ -42,11 +42,15 @@ class BuscaLinear:
         Também retorna o estado da busca para o início.
         """
 
+        # sample() gera valores sem repetição. A busca linear não exige
+        # ordenação: ela examina cada posição em sequência.
         self.valores = random.sample(
             range(1, 100),
             12
         )
 
+        # Escolher um valor do próprio vetor garante um alvo presente
+        # na demonstração inicial.
         self.valor_procurado = random.choice(
             self.valores
         )
