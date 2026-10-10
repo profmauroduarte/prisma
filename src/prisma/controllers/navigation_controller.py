@@ -8,6 +8,9 @@
 #   - alternar entre as páginas da janela principal.
 # ============================================================
 
+from PySide6.QtWidgets import QSizePolicy
+
+
 class NavigationController:
     """
     Controla a navegação entre as páginas principais do PRISMA.
@@ -38,6 +41,24 @@ class NavigationController:
             self.window.activitiesButton: self.window.activitiesPage,
             self.window.settingsButton: self.window.settingsPage,
         }
+
+        cards = {
+            self.window.playgroundCard: self.window.playgroundPage,
+            self.window.algorithmsCard: self.window.algorithmsPage,
+            self.window.dataStructuresCard: self.window.dataStructuresPage,
+            self.window.apiCard: self.window.apiPage,
+            self.window.databaseCard: self.window.dbPage,
+            self.window.concurrencyCard: self.window.concurrencyPage,
+            self.window.activitiesCard: self.window.activitiesPage,
+        }
+        # Um QPushButton já oferece clique, foco e ativação pelo teclado.
+        # A propriedade permite dar aparência de card usando QSS.
+        for card in cards:
+            card.setProperty("dashboardCard", True)
+            card.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        for button in pages:
+            button.setSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Fixed)
+        pages.update(cards)
 
         # O argumento padrão guarda a página de cada botão no momento
         # da conexão, evitando que todos apontem para a última página.

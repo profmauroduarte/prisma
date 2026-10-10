@@ -51,8 +51,9 @@ Não realize refatorações por iniciativa própria.
   `pyside6-uic`.
 - Preserve o Qt Designer como ferramenta de construção da interface.
 - Altere arquivos `.ui` somente quando necessário para a tarefa.
-- Não introduza QSS enquanto essa etapa não for solicitada.
-  O trabalho de estilos pertence à Trilha 2.
+- O uso de QSS está autorizado para os temas claro e escuro.
+  Mantenha os estilos em arquivos próprios em `styles/` e utilize
+  `QSettings` para persistir as preferências, separado da definição visual.
 - O DB Lab utiliza somente SQLite. Não implemente suporte a MySQL
   ou PostgreSQL sem uma nova decisão discutida com o usuário.
 - Preserve o uso de `QStandardPaths.AppLocalDataLocation` para o

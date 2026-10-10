@@ -1,0 +1,30 @@
+/* O tema define aparência; QSettings guarda apenas a escolha do usuário. */
+QWidget { background-color: #dce3eb; color: #18212c; }
+QGroupBox { border: 1px solid #9aabbd; border-radius: 6px; margin-top: 12px; padding: 12px; }
+QGroupBox::title { subcontrol-origin: margin; left: 12px; padding: 0 4px; }
+QLineEdit, QPlainTextEdit, QTextEdit, QListWidget, QTableWidget, QComboBox, QSpinBox {
+    background-color: #edf1f5; border: 1px solid #9aabbd;
+    border-radius: 4px; padding: 4px; selection-background-color: #2563eb;
+    selection-color: #ffffff;
+}
+QPushButton { background-color: #cbd6e3; border: 1px solid #aebccc; border-radius: 4px; padding: 6px 10px; }
+QPushButton:hover { background-color: #dbe7f7; }
+QPushButton:pressed { background-color: #c5d8f1; }
+QPushButton:disabled { background-color: #eceff3; color: #687484; border-color: #d3d9e1; }
+QPushButton:focus, QLineEdit:focus, QComboBox:focus, QSpinBox:focus { border: 2px solid #2563eb; }
+QProgressBar { border: 1px solid #9aabbd; border-radius: 4px; text-align: center; background-color: #edf1f5; }
+QProgressBar::chunk { background-color: #73a7f7; }
+QHeaderView::section { background-color: #cbd6e3; padding: 4px; border: 1px solid #9aabbd; }
+QComboBox QAbstractItemView { background-color: #edf1f5; color: #18212c; selection-background-color: #2563eb; selection-color: #ffffff; }
+
+/* Controles numéricos explícitos: mesmos botões e setas nos dois temas. */
+QSpinBox { padding-right: 24px; }
+QSpinBox::up-button { subcontrol-origin: border; subcontrol-position: top right; width: 20px; background: #b8c7d9; border: 1px solid #64748b; }
+QSpinBox::down-button { subcontrol-origin: border; subcontrol-position: bottom right; width: 20px; background: #b8c7d9; border: 1px solid #64748b; }
+QSpinBox::up-button:hover, QSpinBox::down-button:hover { background: #d2dfed; }
+QSpinBox::up-arrow { image: url("@ASSET_DIR@/spin-up.svg"); width: 10px; height: 7px; }
+QSpinBox::down-arrow { image: url("@ASSET_DIR@/spin-down.svg"); width: 10px; height: 7px; }
+/* Padding menor na navegação deixa mais espaço para os nomes completos. */
+QWidget#navigationWidget QPushButton { padding: 6px 4px; }
+QPushButton[dashboardCard="true"] { min-height: 64px; padding: 10px; font-size: 15px; font-weight: bold; text-align: left; border-radius: 9px; }
+QLabel#titleLabel, QLabel#settingsTitleLabel, QLabel#algTitleLabel, QLabel#apiTitleLabel, QLabel#DBLabTitle, QLabel#concurrencyTitleLabel, QLabel#activitiesTitleLabel, QLabel#playTitleLabel, QLabel#EstrutTitle, QLabel#aboutTitleLabel { font-size: 22px; font-weight: bold; color: #174b86; padding: 6px 0; }

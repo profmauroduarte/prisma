@@ -42,7 +42,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="dashboardPage">
        <property name="sizePolicy">
@@ -100,49 +100,56 @@
            <item row="2" column="0">
             <widget class="QPushButton" name="databaseCard">
              <property name="text">
-              <string>🗄️ Database Lab</string>
+              <string>🗄️ DB Lab
+Pratique SQL com SQLite</string>
              </property>
             </widget>
            </item>
            <item row="1" column="0">
             <widget class="QPushButton" name="dataStructuresCard">
              <property name="text">
-              <string>🌳 Estruturas de Dados</string>
+              <string>🌳 Estruturas de Dados
+Explore listas, pilhas e filas</string>
              </property>
             </widget>
            </item>
            <item row="3" column="0">
             <widget class="QPushButton" name="activitiesCard">
              <property name="text">
-              <string>📝 Atividades</string>
+              <string>📝 Atividades
+Pratique com desafios guiados</string>
              </property>
             </widget>
            </item>
            <item row="0" column="1">
             <widget class="QPushButton" name="algorithmsCard">
              <property name="text">
-              <string>🔢 Algoritmos</string>
+              <string>🔢 Algoritmos
+Acompanhe buscas e ordenações</string>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
             <widget class="QPushButton" name="playgroundCard">
              <property name="text">
-              <string>🧩 Playground de Python</string>
+              <string>🧩 Playground de Python
+Escreva código e explore a linguagem</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
             <widget class="QPushButton" name="apiCard">
              <property name="text">
-              <string>🌐 API Explorer</string>
+              <string>🌐 API Explorer
+Envie requisições e examine respostas</string>
              </property>
             </widget>
            </item>
            <item row="2" column="1">
             <widget class="QPushButton" name="concurrencyCard">
              <property name="text">
-              <string>⚡ Concurrency Lab</string>
+              <string>⚡ Concurrency Lab
+Execute tarefas em segundo plano</string>
              </property>
             </widget>
            </item>
@@ -152,13 +159,198 @@
        </layout>
       </widget>
       <widget class="QWidget" name="settingsPage">
-       <layout class="QVBoxLayout" name="verticalLayout_11">
+       <layout class="QVBoxLayout" name="settingsLayout">
         <item>
-         <widget class="QLabel" name="label_8">
+         <widget class="QLabel" name="settingsTitleLabel">
           <property name="text">
-           <string>SettingsPage</string>
+           <string>⚙️ Configurações</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="settingsTutorialLabel">
+          <property name="text">
+           <string>1. Escolha o tema, o tamanho da fonte e a duração da demonstração de concorrência.
+      2. O banco padrão será utilizado na próxima inicialização, sem trocar uma conexão ativa.
+      3. Use Restaurar padrões para voltar às preferências iniciais ou Sobre o PRISMA para conhecer o projeto.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="settingsPreferencesGroup">
+          <property name="title">
+           <string>Preferências</string>
+          </property>
+          <layout class="QFormLayout" name="settingsFormLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="settingsFieldLabel0">
+             <property name="text">
+              <string>Tema:</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="settingsThemeComboBox">
+             <item>
+              <property name="text">
+               <string>Claro</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Escuro</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="settingsFieldLabel1">
+             <property name="text">
+              <string>Fonte dos editores:</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="settingsFontSizeSpinBox">
+             <property name="suffix">
+              <string> pt</string>
+             </property>
+             <property name="minimum">
+              <number>8</number>
+             </property>
+             <property name="maximum">
+              <number>24</number>
+             </property>
+             <property name="value">
+              <number>12</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="settingsFieldLabel2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Duração da tarefa Concurrency:</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QSpinBox" name="settingsTaskDurationSpinBox">
+             <property name="suffix">
+              <string> s</string>
+             </property>
+             <property name="minimum">
+              <number>5</number>
+             </property>
+             <property name="maximum">
+              <number>30</number>
+             </property>
+             <property name="value">
+              <number>20</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="settingsFieldLabel3">
+             <property name="text">
+              <string>Banco padrão:</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <layout class="QHBoxLayout" name="settingsDatabaseLayout">
+             <item>
+              <widget class="QLineEdit" name="settingsDatabasePathInput">
+               <property name="placeholderText">
+                <string>Caminho do banco SQLite (.db)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="settingsBrowseDatabaseButton">
+               <property name="text">
+                <string>Escolher arquivo...</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="settingsPersistenceLabel">
+          <property name="text">
+           <string>As preferências serão aplicadas e salvas automaticamente para a próxima execução.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="settingsButtonsLayout">
+          <item>
+           <widget class="QPushButton" name="settingsRestoreButton">
+            <property name="text">
+             <string>Restaurar padrões</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="settingsAboutButton">
+            <property name="text">
+             <string>Sobre o PRISMA</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="settingsStatusLabel">
+          <property name="text">
+           <string>Preferências prontas para uso.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="settingsVerticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
@@ -183,10 +375,15 @@
         <item>
          <widget class="QLabel" name="algSubtitleLabel">
           <property name="text">
-           <string>Explore e visualize algoritmos passo a passo.</string>
+           <string>1. Selecione um algoritmo e clique em Próximo passo para acompanhar cada comparação.
+2. Observe os valores destacados e leia a explicação de cada etapa até a conclusão.
+3. Clique em Reiniciar para gerar novos dados e repetir a experiência.</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -321,10 +518,15 @@
           <item>
            <widget class="QLabel" name="apiSubtitleLabel">
             <property name="text">
-             <string>Explore requisições HTTP e visualize respostas de APIs REST.</string>
+             <string>1. Comece com GET: informe uma URL HTTP ou HTTPS e clique em Enviar requisição.
+2. Confira o status HTTP e o conteúdo da resposta abaixo.
+3. Para POST ou PUT, preencha o corpo com JSON válido, por exemplo: {&quot;nome&quot;: &quot;Ana&quot;}. Para DELETE, use a URL de um recurso e confirme a exclusão.</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -419,12 +621,24 @@
           <property name="text">
            <string>DB Lab</string>
           </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+          </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="DBLabSubTitle">
           <property name="text">
-           <string>Laboratório de Banco de Dados SQLite</string>
+           <string>1. Confira o caminho do banco e clique em Conectar.
+2. Execute um comando por vez no editor: CREATE TABLE IF NOT EXISTS alunos (id INTEGER PRIMARY KEY, nome TEXT);
+3. Depois execute INSERT INTO alunos (nome) VALUES ('Ana'); e, em seguida, SELECT * FROM alunos;
+4. Observe a tabela e a mensagem de execução. Os dados ficam salvos no arquivo do banco.</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -531,29 +745,242 @@
        </layout>
       </widget>
       <widget class="QWidget" name="concurrencyPage">
-       <layout class="QVBoxLayout" name="verticalLayout_10">
+       <layout class="QVBoxLayout" name="concurrencyLayout">
         <item>
-         <widget class="QLabel" name="label_6">
+         <widget class="QLabel" name="concurrencyTitleLabel">
           <property name="text">
-           <string>concurrencyPage</string>
+           <string>⏳ Laboratório de Concorrência</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="label_3">
+         <widget class="QLabel" name="concurrencyDescriptionLabel">
           <property name="text">
-           <string>TextLabel</string>
+           <string>Explore como uma tarefa demorada pode executar em segundo plano enquanto a interface continua respondendo.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="concurrencyTaskGroup">
+          <property name="title">
+           <string>Demonstração de tarefa demorada</string>
+          </property>
+          <layout class="QVBoxLayout" name="concurrencyTaskLayout" stretch="0,0,0,1">
+           <item>
+            <widget class="QLabel" name="concurrencyTaskDescriptionLabel">
+             <property name="text">
+              <string>A tarefa será dividida em etapas. A barra mostrará o progresso e a mensagem abaixo indicará o andamento.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QProgressBar" name="concurrencyProgressBar">
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="format">
+              <string>%p%</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="concurrencyStatusLabel">
+             <property name="text">
+              <string>Aguardando início da tarefa.</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="concurrencyStartButton">
+               <property name="text">
+                <string>Iniciar tarefa</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="concurrencyCancelButton">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>Cancelar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="concurrencyStageLabel">
+          <property name="text">
+           <string>Durante a tarefa, navegue entre as páginas para observar que a interface continua respondendo.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="concurrencyVerticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="activitiesPage">
-       <layout class="QVBoxLayout" name="verticalLayout_12">
+       <layout class="QVBoxLayout" name="activitiesLayout">
         <item>
-         <widget class="QLabel" name="label_7">
+         <widget class="QLabel" name="activitiesTitleLabel">
           <property name="text">
-           <string>activitiesPage</string>
+           <string>📝 Atividades práticas</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="activitiesTutorialLabel">
+          <property name="text">
+           <string>1. Escolha um módulo e selecione uma atividade na lista.
+2. Leia o objetivo, siga as instruções e pratique no laboratório correspondente.
+3. Compare seu resultado com o resultado esperado e experimente outras soluções.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="activitiesFilterLayout">
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="activitiesModuleLabel">
+            <property name="text">
+             <string>Módulo:</string>
+            </property>
+            <property name="buddy">
+             <cstring>activitiesModuleComboBox</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="activitiesModuleComboBox">
+            <item>
+             <property name="text">
+              <string>Todos os módulos</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Playground</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>DB Lab</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>API Explorer</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="activitiesContentLayout" stretch="1,2">
+          <item>
+           <widget class="QGroupBox" name="activitiesListGroup">
+            <property name="title">
+             <string>Atividades disponíveis</string>
+            </property>
+            <layout class="QVBoxLayout" name="activitiesListLayout">
+             <item>
+              <widget class="QListWidget" name="activitiesList"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="activitiesDetailsGroup">
+            <property name="title">
+             <string>Detalhes da atividade</string>
+            </property>
+            <layout class="QVBoxLayout" name="activitiesDetailsLayout">
+             <item>
+              <widget class="QTextBrowser" name="activitiesDetailsBrowser">
+               <property name="plainText">
+                <string>Selecione uma atividade para consultar seu objetivo, instruções e resultado esperado.</string>
+               </property>
+               <property name="openExternalLinks">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="activitiesStatusLabel">
+          <property name="text">
+           <string>Em preparação: o catálogo de atividades será disponibilizado na próxima etapa.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -586,10 +1013,15 @@
         <item>
          <widget class="QLabel" name="playSubtitleLabel">
           <property name="text">
-           <string>Experimente Python e veja o resultado.</string>
+           <string>1. Digite print(&quot;Olá, PRISMA!&quot;) no editor e clique em Executar. Confira a saída no console.
+2. Experimente 1 / 0 e leia a mensagem que explica o erro.
+3. Clique em Limpar para apagar o código e a saída e começar outro exemplo.</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -672,7 +1104,7 @@
       <widget class="QWidget" name="dataStructuresPage">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
+         <layout class="QVBoxLayout" name="verticalLayout_8" stretch="0,0,0,0">
           <item>
            <widget class="QLabel" name="EstrutTitle">
             <property name="text">
@@ -686,12 +1118,28 @@
           <item>
            <widget class="QLabel" name="EstrtSubTitle">
             <property name="text">
-             <string>Explore estruturas de dados e visualize seu funcionamento.</string>
+             <string>1. Selecione Lista, Pilha ou Fila e clique em Próximo passo para acompanhar a simulação.
+2. Na Lista, observe o percurso. Na Pilha e na Fila, acompanhe as inserções e depois as remoções: qual valor sai primeiro?
+3. Leia as mensagens de cada etapa e clique em Reiniciar para repetir a demonstração.</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
             </property>
            </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="0">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>Estruturas disponíveis</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_18">

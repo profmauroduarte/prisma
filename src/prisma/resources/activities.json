@@ -1,0 +1,338 @@
+[
+  {
+    "id": "python-saudacao",
+    "modulo": "playground",
+    "titulo": "Escreva sua primeira mensagem",
+    "objetivo": "Conhecer print(), comentários e execução sequencial.",
+    "instrucoes": "1. No Playground, escreva um comentário começando com #.\n2. Exiba Olá, PRISMA! com print().\n3. Em outra linha, exiba Estou aprendendo Python. Execute o código.",
+    "resultado_esperado": "O console mostra as duas mensagens na ordem escrita; o comentário não aparece na saída."
+  },
+  {
+    "id": "python-tipos",
+    "modulo": "playground",
+    "titulo": "Explore variáveis e tipos básicos",
+    "objetivo": "Distinguir str, int, float e bool.",
+    "instrucoes": "1. Crie nome = \"Ana\", idade = 16, altura = 1.65 e estudante = True.\n2. Exiba cada valor e seu tipo com print() e type().\n3. Altere idade para 17 e execute novamente.",
+    "resultado_esperado": "Os tipos exibidos são str, int, float e bool. A idade passa a ser 17."
+  },
+  {
+    "id": "python-conversao",
+    "modulo": "playground",
+    "titulo": "Converta texto em número",
+    "objetivo": "Praticar int(), float() e str().",
+    "instrucoes": "1. Guarde \"12\" e \"3.5\" em variáveis.\n2. Converta com int() e float() e some os números.\n3. Converta o resultado em texto usando str() e exiba uma mensagem.\nUse valores escritos no código; não utilize input() nesta atividade.",
+    "resultado_esperado": "A soma numérica é 15.5, em vez de uma concatenação de textos."
+  },
+  {
+    "id": "python-operadores",
+    "modulo": "playground",
+    "titulo": "Compare divisão, resto e potência",
+    "objetivo": "Explorar /, //, %, ** e precedência.",
+    "instrucoes": "1. Use a = 17 e b = 5.\n2. Exiba a / b, a // b, a % b e b ** 2.\n3. Compare (2 + 3) * 4 com 2 + 3 * 4.",
+    "resultado_esperado": "Os resultados são 3.4, 3, 2 e 25. Com parênteses, o resultado é 20; sem eles, 14."
+  },
+  {
+    "id": "python-formatacao",
+    "modulo": "playground",
+    "titulo": "Monte mensagens com f-strings",
+    "objetivo": "Combinar variáveis e texto e formatar casas decimais.",
+    "instrucoes": "1. Crie produto = \"Caderno\", quantidade = 3 e preco = 12.5.\n2. Calcule o total.\n3. Use uma f-string para exibir produto, quantidade e total com duas casas decimais; use {total:.2f}.",
+    "resultado_esperado": "A mensagem identifica Caderno, quantidade 3 e total 37.50."
+  },
+  {
+    "id": "python-texto",
+    "modulo": "playground",
+    "titulo": "Investigue operações com strings",
+    "objetivo": "Praticar strip(), upper(), len() e fatiamento.",
+    "instrucoes": "1. Crie texto = \"  prisma  \".\n2. Remova os espaços nas extremidades com strip().\n3. Exiba o texto em maiúsculas, seu comprimento e os três primeiros caracteres usando [:3].",
+    "resultado_esperado": "Após strip(), o texto é prisma; os outros resultados são PRISMA, 6 e pri."
+  },
+  {
+    "id": "python-media",
+    "modulo": "playground",
+    "titulo": "Calcule a média de três notas",
+    "objetivo": "Praticar variáveis e operações aritméticas.",
+    "instrucoes": "1. Abra o Playground.\n2. Guarde as notas 7, 8 e 9 em três variáveis.\n3. Calcule a soma dividida por 3 e exiba o resultado com print().",
+    "resultado_esperado": "O console deve apresentar a média 8.0."
+  },
+  {
+    "id": "python-condicao",
+    "modulo": "playground",
+    "titulo": "Verifique a aprovação de um aluno",
+    "objetivo": "Praticar decisões com if e else.",
+    "instrucoes": "1. No Playground, crie a variável media com valor 8.\n2. Se a média for maior ou igual a 7, exiba Aprovado; caso contrário, exiba Reprovado.\n3. Execute novamente com média 5 e compare as saídas.",
+    "resultado_esperado": "Com média 8, o console mostra Aprovado. Com média 5, mostra Reprovado."
+  },
+  {
+    "id": "python-paridade",
+    "modulo": "playground",
+    "titulo": "Descubra se um número é par",
+    "objetivo": "Combinar resto da divisão com if e else.",
+    "instrucoes": "1. Defina numero = 14.\n2. Verifique se numero % 2 é igual a zero.\n3. Exiba Par ou Ímpar. Repita com 15.",
+    "resultado_esperado": "14 é identificado como Par e 15 como Ímpar."
+  },
+  {
+    "id": "python-logica",
+    "modulo": "playground",
+    "titulo": "Combine condições lógicas",
+    "objetivo": "Praticar comparações, and, or e not.",
+    "instrucoes": "1. Defina idade = 16 e tem_autorizacao = True.\n2. Considere a entrada permitida se idade >= 18 ou tem_autorizacao.\n3. Exiba também idade >= 18 and tem_autorizacao e not tem_autorizacao.\n4. Teste outras combinações.",
+    "resultado_esperado": "Para os valores iniciais, os resultados são True, False e False."
+  },
+  {
+    "id": "python-elif",
+    "modulo": "playground",
+    "titulo": "Classifique uma nota em três faixas",
+    "objetivo": "Organizar alternativas com if, elif e else.",
+    "instrucoes": "1. Defina nota = 6.\n2. Exiba Aprovado se nota >= 7; Recuperação se nota >= 5; caso contrário, Reprovado.\n3. Teste 7, 5 e 4, observando os limites das condições.",
+    "resultado_esperado": "6 e 5 resultam em Recuperação; 7 em Aprovado; 4 em Reprovado."
+  },
+  {
+    "id": "python-for",
+    "modulo": "playground",
+    "titulo": "Conte com for e range",
+    "objetivo": "Entender repetição e o limite final exclusivo de range().",
+    "instrucoes": "1. Use for para exibir os números de 1 a 5, um por linha.\n2. Use range(1, 6).\n3. Repita exibindo o dobro de cada número.",
+    "resultado_esperado": "A primeira execução mostra 1, 2, 3, 4 e 5; a segunda mostra 2, 4, 6, 8 e 10."
+  },
+  {
+    "id": "python-acumulador",
+    "modulo": "playground",
+    "titulo": "Some números com um acumulador",
+    "objetivo": "Manter um resultado atualizado dentro de um laço.",
+    "instrucoes": "1. Crie total = 0.\n2. Percorra de 1 a 10 com for e range().\n3. Some cada número a total e exiba o total após o laço.\n4. Compare com sum(range(1, 11)).",
+    "resultado_esperado": "As duas formas produzem 55."
+  },
+  {
+    "id": "python-while",
+    "modulo": "playground",
+    "titulo": "Faça uma contagem regressiva",
+    "objetivo": "Praticar while e a atualização da condição de parada.",
+    "instrucoes": "1. Defina contador = 5.\n2. Enquanto contador > 0, exiba o valor e diminua-o em 1.\n3. Após o laço, exiba Fim. Mantenha a diminuição do contador para o laço terminar.",
+    "resultado_esperado": "A saída apresenta 5, 4, 3, 2, 1 e Fim."
+  },
+  {
+    "id": "python-break-continue",
+    "modulo": "playground",
+    "titulo": "Controle um laço com break e continue",
+    "objetivo": "Distinguir pular uma iteração e encerrar uma repetição.",
+    "instrucoes": "1. Percorra range(1, 8).\n2. Se o número for 3, use continue antes do print().\n3. Se o número for 6, use break antes do print().\n4. Exiba os demais números.",
+    "resultado_esperado": "A saída contém 1, 2, 4 e 5. O 3 é pulado, e o laço termina antes de exibir 6."
+  },
+  {
+    "id": "python-listas",
+    "modulo": "playground",
+    "titulo": "Manipule uma lista de compras",
+    "objetivo": "Praticar índices, append(), remove() e len().",
+    "instrucoes": "1. Crie compras = [\"arroz\", \"leite\"].\n2. Adicione \"pão\" com append().\n3. Remova \"leite\" com remove().\n4. Exiba a lista, o item no índice 0 e a quantidade de itens.",
+    "resultado_esperado": "A lista fica [\"arroz\", \"pão\"], o primeiro item é arroz e a quantidade é 2."
+  },
+  {
+    "id": "python-lista-notas",
+    "modulo": "playground",
+    "titulo": "Percorra uma lista de notas",
+    "objetivo": "Combinar listas, laços e condições.",
+    "instrucoes": "1. Crie notas = [4, 7, 9, 6].\n2. Percorra a lista e conte quantas notas são maiores ou iguais a 7.\n3. Exiba a contagem e a média calculada com sum() e len().",
+    "resultado_esperado": "Há 2 notas de aprovação e a média é 6.5."
+  },
+  {
+    "id": "python-tuplas",
+    "modulo": "playground",
+    "titulo": "Desempacote uma tupla",
+    "objetivo": "Conhecer tuplas e atribuição por desempacotamento.",
+    "instrucoes": "1. Crie aluno = (\"Ana\", 16).\n2. Use nome, idade = aluno e exiba as duas variáveis.\n3. Em uma execução separada, tente aluno[0] = \"Bruno\" e leia o erro.",
+    "resultado_esperado": "O desempacotamento fornece Ana e 16. Alterar um item da tupla gera TypeError, pois seus itens não podem ser substituídos."
+  },
+  {
+    "id": "python-dicionarios",
+    "modulo": "playground",
+    "titulo": "Consulte um cadastro com dicionário",
+    "objetivo": "Relacionar chaves e valores e utilizar get().",
+    "instrucoes": "1. Crie aluno = {\"nome\": \"Ana\", \"nota\": 8}.\n2. Atualize a nota para 9 e acrescente \"turma\": \"A\".\n3. Exiba nome e nota. Consulte \"telefone\" com get(\"telefone\", \"Não informado\").",
+    "resultado_esperado": "Nome: Ana; nota: 9; telefone: Não informado. O cadastro também contém turma A."
+  },
+  {
+    "id": "python-conjuntos",
+    "modulo": "playground",
+    "titulo": "Elimine valores repetidos",
+    "objetivo": "Conhecer set() e a ausência de ordem garantida em conjuntos.",
+    "instrucoes": "1. Crie valores = [2, 2, 3, 4, 4].\n2. Converta para um conjunto com set().\n3. Exiba len() do conjunto e sorted() do conjunto para comparar os valores em ordem.",
+    "resultado_esperado": "O conjunto possui 3 elementos; sorted() produz [2, 3, 4]. A exibição direta do conjunto não deve ser usada para exigir uma ordem."
+  },
+  {
+    "id": "python-compreensao",
+    "modulo": "playground",
+    "titulo": "Crie uma lista por compreensão",
+    "objetivo": "Construir listas com transformação e filtro.",
+    "instrucoes": "1. Crie uma lista com os quadrados dos números de 1 a 5 usando compreensão de lista.\n2. Crie outra apenas com os números pares de 1 a 10.\n3. Exiba ambas.",
+    "resultado_esperado": "As listas são [1, 4, 9, 16, 25] e [2, 4, 6, 8, 10]."
+  },
+  {
+    "id": "python-funcoes",
+    "modulo": "playground",
+    "titulo": "Crie uma função com retorno",
+    "objetivo": "Praticar def, parâmetros, return e chamada de função.",
+    "instrucoes": "1. Defina uma função dobro(numero) que retorne numero * 2.\n2. Chame a função com 4 e com 7 e exiba os retornos.\n3. Observe que return fornece um valor ao código que chamou a função; print() o apresenta no console.",
+    "resultado_esperado": "As chamadas retornam 8 e 14, exibidos pelo print()."
+  },
+  {
+    "id": "python-parametro-padrao",
+    "modulo": "playground",
+    "titulo": "Use um parâmetro com valor padrão",
+    "objetivo": "Chamar funções com argumentos posicionais e nomeados.",
+    "instrucoes": "1. Defina saudacao(nome, mensagem=\"Olá\") e retorne uma f-string com mensagem e nome.\n2. Exiba saudacao(\"Ana\").\n3. Exiba saudacao(nome=\"Bruno\", mensagem=\"Bom dia\").",
+    "resultado_esperado": "As mensagens são Olá, Ana e Bom dia, Bruno, conforme a pontuação que você definir."
+  },
+  {
+    "id": "python-excecoes",
+    "modulo": "playground",
+    "titulo": "Trate uma conversão inválida",
+    "objetivo": "Praticar try e except ValueError.",
+    "instrucoes": "1. Defina texto = \"abc\".\n2. Tente converter com int() dentro de try.\n3. Em except ValueError, exiba Digite um número válido.\n4. Repita com texto = \"42\" e exiba o número convertido.",
+    "resultado_esperado": "Com abc, aparece a mensagem definida no except. Com 42, aparece o inteiro 42."
+  },
+  {
+    "id": "python-modulos",
+    "modulo": "playground",
+    "titulo": "Utilize um módulo da biblioteca padrão",
+    "objetivo": "Conhecer import e chamadas a funções de um módulo.",
+    "instrucoes": "1. Importe math.\n2. Exiba math.sqrt(81) e math.ceil(3.2).\n3. Observe a diferença entre calcular uma raiz e arredondar para cima.",
+    "resultado_esperado": "Os resultados são 9.0 e 4."
+  },
+  {
+    "id": "python-desafio",
+    "modulo": "playground",
+    "titulo": "Faça um resumo de uma turma",
+    "objetivo": "Integrar listas, dicionários, laços e condições.",
+    "instrucoes": "1. Crie uma lista de dicionários com Ana (8), Bruno (5) e Carla (9), usando chaves nome e nota.\n2. Percorra os cadastros e exiba os nomes de quem tem nota >= 7.\n3. Calcule e exiba a média da turma, formatada com duas casas decimais.",
+    "resultado_esperado": "Os aprovados são Ana e Carla. A média exibida é 7.33."
+  },
+  {
+    "id": "sqlite-cadastro",
+    "modulo": "database",
+    "titulo": "Cadastre e consulte alunos",
+    "objetivo": "Praticar CREATE TABLE, INSERT e SELECT em SQLite.",
+    "instrucoes": "1. Abra o DB Lab e conecte ao banco.\n2. Execute: CREATE TABLE IF NOT EXISTS atividade_alunos (id INTEGER PRIMARY KEY, nome TEXT, nota REAL);\n3. Execute: INSERT INTO atividade_alunos (nome, nota) VALUES ('Ana', 8);\n4. Execute: SELECT * FROM atividade_alunos;\nExecute um comando por vez. Cada INSERT acrescenta um novo registro.",
+    "resultado_esperado": "A tabela de resultados apresenta as colunas id, nome e nota, incluindo um registro de Ana com nota 8."
+  },
+  {
+    "id": "sqlite-filtro",
+    "modulo": "database",
+    "titulo": "Consulte alunos aprovados",
+    "objetivo": "Filtrar registros utilizando WHERE.",
+    "instrucoes": "1. Conclua a atividade Cadastre e consulte alunos no mesmo banco.\n2. Execute: INSERT INTO atividade_alunos (nome, nota) VALUES ('Bruno', 5);\n3. Execute: SELECT nome, nota FROM atividade_alunos WHERE nota >= 7;",
+    "resultado_esperado": "A consulta inclui Ana e exclui Bruno com nota 5. Outros registros aparecem se também tiverem nota maior ou igual a 7."
+  },
+  {
+    "id": "sqlite-ordenacao",
+    "modulo": "database",
+    "titulo": "Ordene os alunos pela nota",
+    "objetivo": "Praticar ORDER BY e LIMIT.",
+    "instrucoes": "1. Conclua as atividades de cadastro e filtro no mesmo banco.\n2. Execute SELECT nome, nota FROM atividade_alunos ORDER BY nota DESC, nome ASC;\n3. Acrescente LIMIT 1 antes do ponto e vírgula e execute novamente.",
+    "resultado_esperado": "A primeira consulta ordena da maior nota para a menor. A segunda retorna apenas o primeiro registro dessa ordem."
+  },
+  {
+    "id": "sqlite-update",
+    "modulo": "database",
+    "titulo": "Atualize a nota de um aluno",
+    "objetivo": "Praticar UPDATE com filtro e conferir a alteração.",
+    "instrucoes": "1. Use o banco das atividades anteriores.\n2. Execute SELECT * FROM atividade_alunos WHERE nome = 'Bruno';\n3. Execute UPDATE atividade_alunos SET nota = 7 WHERE nome = 'Bruno';\n4. Repita a consulta. O filtro altera todos os registros com esse nome.",
+    "resultado_esperado": "Os registros de Bruno passam a ter nota 7; a mensagem informa quantas linhas foram afetadas."
+  },
+  {
+    "id": "sqlite-agregacao",
+    "modulo": "database",
+    "titulo": "Resuma os dados com funções agregadas",
+    "objetivo": "Praticar COUNT, AVG, MIN e MAX.",
+    "instrucoes": "1. Use a tabela atividade_alunos preenchida.\n2. Execute SELECT COUNT(*) AS quantidade, AVG(nota) AS media, MIN(nota) AS menor, MAX(nota) AS maior FROM atividade_alunos;\n3. Compare os resultados com os registros que você cadastrou.",
+    "resultado_esperado": "Uma linha apresenta quantidade, média, menor e maior nota. Os valores dependem dos registros presentes no banco."
+  },
+  {
+    "id": "sqlite-grupo",
+    "modulo": "database",
+    "titulo": "Agrupe alunos por turma",
+    "objetivo": "Praticar GROUP BY em uma tabela de demonstração.",
+    "instrucoes": "1. Execute CREATE TABLE IF NOT EXISTS atividade_turmas (nome TEXT, turma TEXT);\n2. Se a tabela estiver vazia, execute separadamente INSERT INTO atividade_turmas VALUES ('Ana', 'A');, INSERT INTO atividade_turmas VALUES ('Bruno', 'A'); e INSERT INTO atividade_turmas VALUES ('Carla', 'B');\n3. Execute SELECT turma, COUNT(*) AS quantidade FROM atividade_turmas GROUP BY turma ORDER BY turma;",
+    "resultado_esperado": "Com esses três registros inseridos uma única vez, a turma A tem 2 alunos e a B tem 1."
+  },
+  {
+    "id": "sqlite-delete",
+    "modulo": "database",
+    "titulo": "Exclua um registro de demonstração",
+    "objetivo": "Praticar DELETE com WHERE e verificação.",
+    "instrucoes": "1. Na tabela atividade_alunos, insira um registro de teste: INSERT INTO atividade_alunos (nome, nota) VALUES ('TesteExcluir', 0);\n2. Consulte WHERE nome = 'TesteExcluir' para conferir o alvo.\n3. Execute DELETE FROM atividade_alunos WHERE nome = 'TesteExcluir';\n4. Consulte novamente com o mesmo filtro.",
+    "resultado_esperado": "A última consulta retorna zero registros desse nome. Os demais alunos continuam no banco."
+  },
+  {
+    "id": "sqlite-null",
+    "modulo": "database",
+    "titulo": "Diferencie NULL de zero",
+    "objetivo": "Identificar dados ausentes com IS NULL.",
+    "instrucoes": "1. Execute INSERT INTO atividade_alunos (nome, nota) VALUES ('SemNota', NULL);\n2. Execute SELECT nome, nota FROM atividade_alunos WHERE nota IS NULL;\n3. Compare com SELECT nome, nota FROM atividade_alunos WHERE nota = 0;",
+    "resultado_esperado": "SemNota aparece na consulta IS NULL. NULL representa ausência de valor, não uma nota igual a zero."
+  },
+  {
+    "id": "api-consulta",
+    "modulo": "api",
+    "titulo": "Consulte um recurso com GET",
+    "objetivo": "Relacionar URL, método HTTP, status e resposta JSON.",
+    "instrucoes": "1. Abra o API Explorer e escolha GET.\n2. Informe a URL de um recurso disponível na API de testes indicada pelo professor.\n3. Envie a requisição e observe o status HTTP e os campos da resposta.\n4. Compare a consulta de uma coleção com a consulta de um recurso por seu identificador.",
+    "resultado_esperado": "Para uma API de testes com recursos existentes, a resposta normalmente terá status 200. Compare os dados de uma coleção com os de um único recurso."
+  },
+  {
+    "id": "api-criacao",
+    "modulo": "api",
+    "titulo": "Crie um recurso com POST",
+    "objetivo": "Enviar JSON e verificar a criação de um recurso.",
+    "instrucoes": "1. Utilize uma API de testes que aceite criação e persistência, indicada pelo professor.\n2. No API Explorer, escolha POST e informe a URL da coleção.\n3. Preencha um JSON compatível com essa API, por exemplo: {\"nome\": \"Ana\"}.\n4. Envie e observe a resposta. Depois use GET para verificar o recurso criado.",
+    "resultado_esperado": "A API confirma a criação, normalmente com status 201. O recurso pode ser consultado por GET quando a API persiste as alterações."
+  },
+  {
+    "id": "api-json-invalido",
+    "modulo": "api",
+    "titulo": "Investigue um JSON inválido",
+    "objetivo": "Reconhecer validação local antes do envio.",
+    "instrucoes": "1. No API Explorer, escolha POST e use a URL de uma coleção de testes indicada pelo professor.\n2. Digite {\"nome\": \"Ana\",} e envie.\n3. Leia a mensagem e retire a vírgula final. Envie novamente com o JSON corrigido.",
+    "resultado_esperado": "O JSON com vírgula final é rejeitado antes do envio. O JSON corrigido passa pela validação local; a resposta depende da API."
+  },
+  {
+    "id": "api-put",
+    "modulo": "api",
+    "titulo": "Atualize um recurso com PUT",
+    "objetivo": "Praticar atualização e consulta posterior.",
+    "instrucoes": "1. Use uma API de testes persistente indicada pelo professor.\n2. Consulte um recurso com GET e guarde sua URL e os campos exigidos.\n3. Escolha PUT na mesma URL e envie o corpo completo conforme o contrato da API, alterando um campo.\n4. Repita GET para verificar.",
+    "resultado_esperado": "Uma resposta de sucesso confirma a atualização. O GET mostra a alteração se a API a persistir; não pressuponha que campos omitidos serão mantidos."
+  },
+  {
+    "id": "api-delete",
+    "modulo": "api",
+    "titulo": "Teste a confirmação de exclusão",
+    "objetivo": "Praticar DELETE e observar a confirmação do usuário.",
+    "instrucoes": "1. Crie um recurso descartável na API de testes persistente.\n2. Escolha DELETE na URL desse recurso e cancele a confirmação. Verifique por GET que ele continua presente.\n3. Repita DELETE e confirme. Faça um novo GET.",
+    "resultado_esperado": "Cancelar a confirmação não envia a exclusão. Após confirmar e a API excluir o recurso, GET indica que ele não está mais disponível, conforme o contrato da API."
+  },
+  {
+    "id": "api-nao-encontrado",
+    "modulo": "api",
+    "titulo": "Investigue um recurso inexistente",
+    "objetivo": "Ler uma resposta HTTP de erro e seu corpo.",
+    "instrucoes": "1. Use uma API de testes indicada pelo professor.\n2. Faça GET na URL de um identificador que não existe.\n3. Compare o status e o conteúdo com a consulta de um recurso existente.",
+    "resultado_esperado": "Uma API REST normalmente responde 404 para um recurso inexistente. Observe a resposta real da API utilizada e sua mensagem de erro."
+  },
+  {
+    "id": "api-url",
+    "modulo": "api",
+    "titulo": "Verifique a validação da URL",
+    "objetivo": "Distinguir validação de endereço e resposta do servidor.",
+    "instrucoes": "1. Deixe a URL vazia e tente enviar GET.\n2. Digite um endereço sem http:// ou https:// e tente novamente.\n3. Informe uma URL HTTP ou HTTPS válida da API de testes e envie.",
+    "resultado_esperado": "As duas primeiras tentativas mostram orientações locais. A terceira realiza uma requisição; o resultado depende do servidor."
+  },
+  {
+    "id": "api-crud",
+    "modulo": "api",
+    "titulo": "Complete um ciclo CRUD",
+    "objetivo": "Integrar POST, GET, PUT e DELETE.",
+    "instrucoes": "1. Use uma API de testes persistente indicada pelo professor.\n2. Crie um recurso com POST e anote o identificador retornado.\n3. Consulte sua URL com GET.\n4. Atualize com PUT, enviando os campos exigidos, e consulte novamente.\n5. Exclua com DELETE e verifique a ausência por GET.",
+    "resultado_esperado": "Você observa o recurso criado, consultado, atualizado e excluído. Registre os status e respostas reais de cada operação."
+  }
+]

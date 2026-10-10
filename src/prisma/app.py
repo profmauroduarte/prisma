@@ -25,6 +25,10 @@ from prisma.controllers.algorithms_controller import AlgorithmsController
 from prisma.controllers.data_structures_controller import DataStructuresController
 from prisma.controllers.api_controller import ApiController
 from prisma.controllers.database_controller import DatabaseController
+from prisma.controllers.concurrency_controller import ConcurrencyController
+from prisma.controllers.activities_controller import ActivitiesController
+from prisma.controllers.settings_controller import SettingsController
+from prisma.services.settings.settings_service import SettingsService
 
 def main():
     """Carrega a janela principal e inicia o loop de eventos do Qt."""
@@ -69,7 +73,11 @@ def main():
     algorithms_controller = AlgorithmsController(window)
     data_structures_controller = DataStructuresController(window)
     api_controller = ApiController(window)
-    database_controller = DatabaseController(window)
+    settings_service = SettingsService()
+    database_controller = DatabaseController(window, settings_service)
+    concurrency_controller = ConcurrencyController(window, settings_service)
+    activities_controller = ActivitiesController(window)
+    settings_controller = SettingsController(window, settings_service)
     
     window.show()
 

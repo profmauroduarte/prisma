@@ -7,7 +7,7 @@ class DatabaseController:
     Controla a página DB Lab do PRISMA.
     """
 
-    def __init__(self, window):
+    def __init__(self, window, settings_service=None):
         self.window = window
         # O controller conhece a interface; o serviço conhece o SQLite.
         # Essa divisão permite usar o serviço sem abrir uma janela.
@@ -15,7 +15,8 @@ class DatabaseController:
 
         # Apresenta o caminho padrão do banco na interface.
         self.window.dbPathInput.setText(
-            str(caminho_banco_padrao())
+            settings_service.carregar()["banco"]
+            if settings_service is not None else str(caminho_banco_padrao())
         )
 
         self.window.dbStatusLabel.setText("Desconectado")

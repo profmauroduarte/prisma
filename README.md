@@ -19,7 +19,8 @@ longo do curso conforme novos conceitos são apresentados.
 
 Nesta etapa do desenvolvimento, o PRISMA já possui:
 
--   navegação entre as principais áreas da aplicação;
+-   navegação entre as principais áreas da aplicação, com cards clicáveis
+    no Dashboard e botões disponíveis em todas as páginas;
 -   Playground para escrita e execução de código Python;
 -   editor de código customizado com numeração de linhas e destaque da
     linha atual, compartilhado pelo Playground e pelo DB Lab;
@@ -27,7 +28,10 @@ Nesta etapa do desenvolvimento, o PRISMA já possui:
 -   visualização passo a passo de algoritmos;
 -   simulação visual de estruturas de dados;
 -   API Explorer para realizar requisições HTTP;
--   DB Lab para executar comandos SQL em bancos SQLite persistentes.
+-   DB Lab para executar comandos SQL em bancos SQLite persistentes;
+-   laboratório de Concorrência com uma tarefa em segundo plano e progresso;
+-   catálogo de atividades práticas para Playground, DB Lab e API Explorer;
+-   configurações persistentes, temas claro/escuro e janela Sobre o PRISMA.
 
 ### Algoritmos disponíveis
 
@@ -78,6 +82,58 @@ O DB Lab utiliza somente SQLite. MySQL e PostgreSQL poderão ser abordados
 comparativamente no material didático. O destaque de sintaxe SQL está
 adiado.
 
+### Laboratório de Concorrência
+
+Uma tarefa simulada de vinte segundos por padrão utiliza `QThread`
+e informa o progresso por sinais do Qt. Durante a execução, é possível
+navegar entre as páginas. O botão Iniciar tarefa fica desabilitado até
+o término, quando uma nova execução pode ser iniciada.
+
+O botão Cancelar solicita a interrupção cooperativa da tarefa. O progresso
+permanece no último valor exibido, e uma nova execução começa em 0%.
+
+Ao fechar a janela, a aplicação solicita a interrupção da tarefa e aguarda
+seu encerramento antes de liberar os componentes.
+
+A duração pode ser configurada entre 5 e 30 segundos, valendo para a
+próxima execução.
+
+### Atividades práticas
+
+A tela apresenta 42 atividades, com numeração automática,
+filtro por módulo, objetivo, instruções e resultado esperado. O aluno
+realiza os desafios nos laboratórios; não há correção automática.
+
+- **Playground — 26 atividades:** saída e comentários, variáveis, tipos,
+  conversões, operadores, strings, condições, laços, listas, tuplas,
+  dicionários, conjuntos, compreensões, funções, exceções e módulos.
+- **DB Lab — 8 atividades:** criação, inserção, consulta, filtros,
+  ordenação, atualização, agregação, agrupamento, exclusão e NULL.
+- **API Explorer — 8 atividades:** GET, POST, PUT, DELETE, validações,
+  recurso inexistente e um ciclo CRUD completo.
+
+O catálogo fica em `src/prisma/resources/activities.json`. Cada atividade
+possui `id`, `modulo`, `titulo`, `objetivo`, `instrucoes` e
+`resultado_esperado`. Os módulos são `playground`, `database` e `api`.
+O serviço valida o catálogo antes de disponibilizá-lo à interface.
+
+Os dados estão separados da apresentação para permitir uma futura
+integração com uma API colaborativa. Atualmente, o catálogo é local.
+
+### Configurações e Sobre
+
+As preferências são salvas automaticamente com `QSettings`:
+
+- Tema claro ou escuro, definido por arquivos QSS em `styles/`.
+- Fonte dos editores Playground e DB Lab, de 8 a 24 pontos.
+- Duração da demonstração de concorrência, de 5 a 30 segundos.
+- Caminho padrão do banco SQLite, utilizado na próxima inicialização.
+
+Tema e fonte são aplicados imediatamente. O botão Restaurar padrões
+pede confirmação; ele não exclui bancos nem atividades. Sobre o PRISMA
+abre uma janela modal definida em `ui/about_dialog.ui`, carregada com
+`QUiLoader`, com informações do projeto e um botão Fechar.
+
 ## Tecnologias
 
 O projeto utiliza atualmente:
@@ -112,10 +168,13 @@ PRISMA/
 │       ├── resources/
 │       ├── services/
 │       │   ├── algorithms/
+│       │   ├── activities/
 │       │   ├── api/
+│       │   ├── concurrency/
 │       │   ├── data_structures/
 │       │   ├── database/
-│       │   └── playground/
+│       │   ├── playground/
+│       │   └── settings/
 │       ├── styles/
 │       ├── ui/
 │       ├── views/
@@ -134,9 +193,10 @@ PRISMA/
 -   **`views/`** --- componentes visuais customizados em Python.
 -   **`ui/`** --- interfaces criadas no Qt Designer.
 -   **`resources/`** --- recursos utilizados pela aplicação.
--   **`styles/`** --- diretório reservado para futuros estilos visuais.
+-   **`styles/`** --- temas claro e escuro definidos em QSS.
 
-Os diretórios `resources/`, `styles/` e `tests/` estão atualmente vazios.
+O diretório `resources/` contém o catálogo JSON de atividades.
+O diretório `tests/` está atualmente vazio.
 O projeto ainda não possui testes automatizados.
 
 ## Instalação
@@ -209,8 +269,8 @@ O trabalho está organizado em trilhas:
 -   **Trilha 4:** Performance e Concorrência.
 -   **Trilha 5:** Finalização e Distribuição.
 
-A aplicação ainda não utiliza QSS. A definição de estilos fica para a
-Trilha 2.
+A aplicação utiliza QSS para os temas claro e escuro. O estudo dos estilos
+visuais integra a Trilha 2, com preferências persistidas por `QSettings`.
 
 ## Status do projeto
 

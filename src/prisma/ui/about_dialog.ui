@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<ui version="4.0">
+ <class>AboutDialog</class>
+ <widget class="QDialog" name="AboutDialog">
+  <property name="windowTitle">
+   <string>Sobre o PRISMA</string>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>480</width>
+    <height>320</height>
+   </size>
+  </property>
+  <layout class="QVBoxLayout" name="aboutLayout">
+   <item>
+    <widget class="QLabel" name="aboutTitleLabel">
+     <property name="text">
+      <string>P.R.I.S.M.A.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="aboutNameLabel">
+     <property name="text">
+      <string>Plataforma de Recursos Interativos para Simulação, Modelagem e Aprendizagem</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="aboutSloganLabel">
+     <property name="text">
+      <string>Transformando código em experiência.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="aboutVersionLabel">
+     <property name="text">
+      <string>Versão 0.1.0</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="aboutPurposeLabel">
+     <property name="text">
+      <string>Aplicação desktop educacional para explorar programação, algoritmos, estruturas de dados, APIs e bancos de dados. O projeto serve de base para uma formação em Python e PySide6, permitindo aprender enquanto se constrói a própria aplicação.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="aboutAuthorLabel">
+     <property name="text">
+      <string>Autoria: Prof. Mauro Duarte
+© 2026 PRISMA</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="aboutCloseButton">
+     <property name="text">
+      <string>Fechar</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>aboutCloseButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AboutDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>0</x>
+     <y>0</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
