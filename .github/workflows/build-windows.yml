@@ -1,0 +1,59 @@
+name: Gerar PRISMA para Windows
+
+# Execução manual pela aba Actions, sem gerar um pacote a cada commit.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    # O Windows roda no GitHub, sem consumir os recursos do computador local.
+    runs-on: windows-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          architecture: x64
+
+      - name: Instalar o projeto e o empacotador
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install . pyinstaller
+
+      - name: Gerar executável e incluir os recursos
+        # Uma linha evita diferenças de continuação entre Bash e PowerShell.
+        run: python -m PyInstaller --noconfirm --name PRISMA --onedir --windowed --paths src --add-data "src/prisma/ui:prisma/ui" --add-data "src/prisma/styles:prisma/styles" --add-data "src/prisma/resources:prisma/resources" src/prisma/__main__.py
+
+      - name: Conferir arquivos essenciais do pacote
+        shell: pwsh
+        run: |
+          $requiredFiles = @(
+            'dist/PRISMA/PRISMA.exe',
+            'dist/PRISMA/_internal/prisma/ui/main_window.ui',
+            'dist/PRISMA/_internal/prisma/ui/about_dialog.ui',
+            'dist/PRISMA/_internal/prisma/styles/light.qss',
+            'dist/PRISMA/_internal/prisma/styles/dark.qss',
+            'dist/PRISMA/_internal/prisma/styles/spin-up.svg',
+            'dist/PRISMA/_internal/prisma/styles/spin-down.svg',
+            'dist/PRISMA/_internal/prisma/resources/activities.json'
+          )
+          foreach ($file in $requiredFiles) {
+            if (-not (Test-Path $file)) { throw "Arquivo ausente: $file" }
+          }
+
+      - name: Disponibilizar pacote para download
+        uses: actions/upload-artifact@v4
+        with:
+          name: PRISMA-Windows-x64
+          # Inclui a pasta toda: o exe precisa das dependências em _internal.
+          path: dist/PRISMA/
+          if-no-files-found: error
+          retention-days: 14
